@@ -1,0 +1,18 @@
+{
+  "name": "chatbotui-server",
+  "version": "1.0.0",
+  "description": "- 👋 Hi, I’m @hughesbrayden\r - 👀 I’m interested in machine learning, data science, product strategy, and all things entrepreneurship.\r - 🌱 I’m currently learning various analytical tools, growing my financial acumen, and building prediction models.\r - 💞️ I’m looking to collaborate on any crazy, exciting, or even boring idea you have in mind.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "openai": "^4.26.0"
+  }
+}

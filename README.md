@@ -7,3 +7,7 @@
 hughesbrayden/hughesbrayden is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
+
+- Within my repository, you will find:
+
+1. Chatbot UI - A chatbot UI that I am building using React with the goal of having a template to interact with LLMs.

@@ -23,7 +23,7 @@ function App() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ message: chatLog.map((message) => message.message).join("") })
+      body: JSON.stringify({ message: input })
     });
     const data = await response.json();
     console.log(data);

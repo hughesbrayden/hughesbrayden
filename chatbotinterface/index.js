@@ -8,16 +8,6 @@ const cors = require('cors');
 // Initialize OpenAI with the API key from .env
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
-const message = await openai.beta.threads.messages.create(
-  thread.id,
-  {
-    role: "user",
-    content: "I need to solve the equation `3x + 11 = 14`. Can you help me?"
-  }
-);
-
-print(response)
-
 const app = express()
 //can you please add cors to express
 app.use(bodyParser.json());

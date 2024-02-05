@@ -105,28 +105,31 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  flex: 0 0 40px; /* This means it will neither grow nor shrink from the 40px size */
 }
 
 .avatar.llm {
   background: #0da37f;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display:flex;
+  width: 40px; /* Fixed width */
+  height: 40px; /* Fixed height to maintain aspect ratio */
+  display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: hidden; /* This ensures content doesn't spill out of the circular boundary */
+  flex: 0 0 40px; /* This means it will neither grow nor shrink from the 40px size */
 }
 
 .avatar.llm svg {
-  width: 100%;
-  height: auto;
-  display: block;
+  flex-shrink: 0; /* Prevent svg from shrinking */
+  width: 100%; /* Full width of the parent container */
+  height: 100%; /* Full height to maintain aspect ratio */
 }
 
 .message {
   padding-left: 40px;
   padding-right: 40px;
+  flex-grow: 1; /* allows the message container to grow as needed */
 }
 
 @keyframes App-logo-spin {

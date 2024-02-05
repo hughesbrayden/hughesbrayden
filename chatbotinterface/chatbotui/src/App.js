@@ -13,26 +13,41 @@ function App() {
     message: "I would like to converse with llms"
   }]);
 
+  function clearChat() {
+    setChatLog([]);
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
-    setChatLog([...chatLog, { user: "me", message: `${input}`} ]);
+    const updatedChatLog = [...chatLog, { user: "me", message: `${input}` }];
+    setChatLog(updatedChatLog);
     setInput("");
-    // fetch response to the api combing the chat log array of messages and sending it as a message to localhost:3000 as a post request
-    const response = await fetch('http://localhost:3080/', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ message: input })
-    });
-    const data = await response.json();
-    console.log(data);
+    // fetch response to the api combing the chat log array of messages and sending it as a message to localhost:3080 as a post request
+    // Send the user's message to the server and wait for the response
+    try {
+      const response = await fetch('http://localhost:3080/', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: input })
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+
+      // Add the server's response to the chat log
+      setChatLog([...updatedChatLog, { user: "gpt", message: data.message }]);
+    } catch (error) {
+      console.error("Failed to submit the message:", error);
+    }
   }
 
   return (
     <div className="App">
     <aside className="sidemenu">
-      <div className="side-menu-button">
+      <div className="side-menu-button" onClick = {clearChat} >
         <span>+</span>
         New Chat
       </div>

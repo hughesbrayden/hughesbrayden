@@ -30,7 +30,7 @@ async function waitForRunCompletion(runId) {
       // Wait for 1 second before the next check only if the run is not completed
       if (runStatus !== "completed") {
         console.log("Waiting for 1 second before the next status check...");
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 500));
       }
     } while (runStatus !== "completed");
 }
@@ -48,6 +48,7 @@ async function retrieveLatestMessage() {
   
 async function messageAssistant(messageContent) {
     const startTime = new Date();
+    let assistantResponse = "No response";
     try {
       await createMessage(messageContent);
       const runResponse = await initiateRun();
@@ -55,9 +56,11 @@ async function messageAssistant(messageContent) {
       const latestResponse = await retrieveLatestMessage();
   
       if (latestResponse && latestResponse.content && latestResponse.content.length > 0 && latestResponse.content[0].type === 'text') {
+        assistantResponse = latestResponse.content[0].text.value; // Capture the assistant's response
         console.log(latestResponse.content[0].text.value);
       } else {
         console.log("No latest response or content in an unrecognized format.");
+        assistantResponse = "An error occurred while processing your request."; // Update the response in case of an error
       }
     } catch (error) {
       console.error("An error occurred:", error);
@@ -65,7 +68,11 @@ async function messageAssistant(messageContent) {
       const endTime = new Date();
       const runTime = endTime - startTime;
       console.log(`Total run time: ${runTime}ms`);
+
+      // Return the response as JSON
+      return { message: assistantResponse, runTime: `${runTime}ms` };
     }
+    
 }
   
 module.exports = { messageAssistant }; // Export the function for use in other modules

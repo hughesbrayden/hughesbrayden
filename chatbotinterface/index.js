@@ -4,6 +4,7 @@ const express = require('express')
 // add body parser and cors to express
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { messageAssistant } = require('./GPTCreation/message');
 
 // Initialize OpenAI with the API key from .env
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
@@ -22,30 +23,8 @@ app.post('/', async (req, res) => {
   // Pull assistant and thread IDs from the .env file
   const assistantId = process.env.ASSISTANT_ID;
   const threadId = process.env.THREAD_ID;
-
-  try {
-    // Send the message to the OpenAI assistant within the specified thread
-    const openaiResponse = await openai.createMessage({
-      assistant: assistantId,
-      thread: threadId,
-      message: {
-        role: 'user',
-        content: message,
-      },
-    });
-
-    // Extract the assistant's response from the OpenAI response
-    const assistantMessage = openaiResponse.data; // Adjust based on actual response structure
-
-    // Log the assistant's response for debugging
-    console.log('Assistant response:', assistantMessage);
-
-    // Send the assistant's response back to the client
-    res.json({ data: assistantMessage });
-  } catch (error) {
-    console.error('Error communicating with OpenAI:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
+  const response = await messageAssistant(message);
+  res.json({ message: response.message });
 });
 
 app.listen(port, () => {

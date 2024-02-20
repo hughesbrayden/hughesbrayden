@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 function App() {
   // add state for input and chat log
   const [input, setInput] = useState('');
+  // const [models, setModels] = useState([]);
+  const [currentModel, setCurrentModel] = useState("GPT-4")
   const [chatLog, setChatLog] = useState([{
     user: "gpt",
     message:"Hello, how can I help you today?"
@@ -12,10 +14,15 @@ function App() {
     user: "me",
     message: "I would like to converse with llms"
   }]);
+  // Authentication state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userToken, setUserToken] = useState(null);
 
   function clearChat() {
     setChatLog([]);
   }
+
+  const models = ["GPT-4", "GPT-3", "GPT-2", "GPT-1"];
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -50,6 +57,16 @@ function App() {
       <div className="side-menu-button" onClick = {clearChat} >
         <span>+</span>
         New Chat
+      </div>
+      <div className="models-title">
+        Models
+      </div>
+      <div className="models">
+        <select onChange = {(e)=>{setCurrentModel(e.target.value)}}>
+          {models.map((model, index) => (
+            <option key={index} value={model}>{model}</option>
+          ))}
+        </select>
       </div>
     </aside>
     <section className="chatbox">

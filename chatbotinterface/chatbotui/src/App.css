@@ -35,6 +35,62 @@
   padding-right:12px;
 }
 
+.models-title {
+  position: relative; /* Position relative to its normal position */
+  text-align: center; /* Center the text */
+  padding-top: 20px; /* Spacing between the top content and "Models" */
+  padding-bottom: 10px; /* Spacing between "Models" and the underline */
+}
+
+.models-title:after {
+  content: ''; /* This is necessary to create a pseudo-element */
+  position: absolute; /* Position absolutely within the .models-title */
+  left: 0; /* Align the pseudo-element to the left */
+  bottom: 0px; /* Position the line below the text */
+  width: 100%; /* Full width of the container */
+  height: 2px; /* Height of the underline */
+  background-color: gray; /* Color of the underline */
+}
+
+.models {
+  position: relative; /* Position relative for the absolute positioning of the pseudo-element */
+  margin-top: 10px; /* Add margin to move the dropdown down */
+}
+
+.models select {
+  display: block; /* Ensures the select fills the container */
+  width: 100%; /* Ensures the select element spans the full width of its parent */
+  padding: 12px;
+  margin: 0; /* Reset any default margin */
+  border: 1px solid gray; /* Style the border */
+  border-radius: 5px;
+  background-color: transparent; /* Transparent background */
+  color: white; /* Text color */
+  -webkit-appearance: none; /* Remove default styling on Webkit browsers */
+  -moz-appearance: none; /* Remove default styling on Mozilla browsers */
+  appearance: none; /* Standard way to remove default styling */
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 12px center; /* Position the arrow */
+  background-size: 12px; /* Size of the arrow */
+  outline: none; /* Remove focus outline */
+}
+
+.models select:hover {
+  background-color: rgba(255,255,255,.1); /* Match the hover effect of the 'New Chat' button */
+}
+
+.models select option {
+  background-color: #202123; /* Set a background color to ensure contrast with the text */
+  color: white; /* Text color for the options */
+}
+
+/* Style for the hover state of each option */
+.models select option:hover {
+  background-color: gray; /* Background color on hover */
+}
+
 .chatbox {
   flex: 1;
   background-color: #343541;

@@ -1,0 +1,48 @@
+.registration-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+  
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This ensures that all form elements are centered horizontally */
+    gap: 15px; /* This provides space between form elements */
+    width: 300px; /* Adjust width as necessary */
+}
+  
+.registration-input {
+    width: 100%; /* Make inputs take the full width of the form */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+  
+/* If you want to specifically control the input group */
+.registration-input-group {
+    width: 100%; /* Full width to align inputs */
+    display: flex;
+    flex-direction: column;
+}
+  
+.registration-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+  
+.registration-button:hover {
+    background-color: #0056b3;
+}
+  
+.registration-error {
+    color: red;
+    margin-bottom: 15px;
+}

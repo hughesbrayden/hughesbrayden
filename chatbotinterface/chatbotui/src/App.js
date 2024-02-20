@@ -5,6 +5,8 @@ import './normal.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import ChatPage from './pages/ChatPage';
+import RegistrationPage from './pages/RegistrationPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -13,6 +15,9 @@ function App() {
         <Routes>
           <Route index element={<LandingPage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

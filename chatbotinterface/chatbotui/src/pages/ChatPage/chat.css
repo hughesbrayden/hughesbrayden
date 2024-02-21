@@ -1,0 +1,257 @@
+.sidemenu {
+    position: relative; /* This makes sure that absolute positioning is relative to this element */
+    width: 240px;
+    padding: 10px;
+    background-color: #202123;
+    height: 100%; /* Make sure the sidebar extends the full height of its container */
+    
+}
+  
+.side-menu-button {
+    padding:12px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: left;
+    transition: ease .25s all;
+}
+  
+.side-menu-button:hover {
+    background-color: rgba(255,255,255,.1);
+}
+  
+.side-menu-button span {
+    padding-left:6px;
+    padding-right:12px;
+}
+  
+  .models-title {
+    position: relative; /* Position relative to its normal position */
+    text-align: center; /* Center the text */
+    padding-top: 20px; /* Spacing between the top content and "Models" */
+    padding-bottom: 10px; /* Spacing between "Models" and the underline */
+  }
+  
+  .models-title:after {
+    content: ''; /* This is necessary to create a pseudo-element */
+    position: absolute; /* Position absolutely within the .models-title */
+    left: 0; /* Align the pseudo-element to the left */
+    bottom: 0px; /* Position the line below the text */
+    width: 100%; /* Full width of the container */
+    height: 2px; /* Height of the underline */
+    background-color: gray; /* Color of the underline */
+  }
+  
+  .models {
+    position: relative; /* Position relative for the absolute positioning of the pseudo-element */
+    margin-top: 10px; /* Add margin to move the dropdown down */
+  }
+  
+  .models select {
+    display: block; /* Ensures the select fills the container */
+    width: 100%; /* Ensures the select element spans the full width of its parent */
+    padding: 12px;
+    margin: 0; /* Reset any default margin */
+    border: 1px solid gray; /* Style the border */
+    border-radius: 5px;
+    background-color: transparent; /* Transparent background */
+    color: white; /* Text color */
+    -webkit-appearance: none; /* Remove default styling on Webkit browsers */
+    -moz-appearance: none; /* Remove default styling on Mozilla browsers */
+    appearance: none; /* Standard way to remove default styling */
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 12px center; /* Position the arrow */
+    background-size: 12px; /* Size of the arrow */
+    outline: none; /* Remove focus outline */
+  }
+  
+  .models select:hover {
+    background-color: rgba(255,255,255,.1); /* Match the hover effect of the 'New Chat' button */
+  }
+  
+  .models select option {
+    background-color: #202123; /* Set a background color to ensure contrast with the text */
+    color: white; /* Text color for the options */
+  }
+  
+  /* Style for the hover state of each option */
+  .models select option:hover {
+    background-color: gray; /* Background color on hover */
+  }
+  
+  .chatbox {
+    flex: 1;
+    background-color: #343541;
+    position:relative;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .chat-input-holder {
+    padding:24px;
+    position:absolute;
+    bottom:0;
+    left:0;right:0;
+  }
+  
+  .chat-input-textarea {
+    background-color: #40414f;
+    width: 90%;
+    border-radius: 5px; 
+    border:none;
+    outline: none;
+    padding:12px;
+    color:white;
+    font-size:1.25em;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.25);
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .chat-log {
+    
+    text-align: left;
+  }
+  
+  .chat-message.llm {
+    background-color: #444654;
+  }
+  
+  .chat-message-center {
+    display: flex;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:12px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  .avatar {
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px; /* This means it will neither grow nor shrink from the 40px size */
+  }
+  
+  .avatar.llm {
+    background: #0da37f;
+    border-radius: 50%;
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height to maintain aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* This ensures content doesn't spill out of the circular boundary */
+    flex: 0 0 40px; /* This means it will neither grow nor shrink from the 40px size */
+  }
+  
+  .avatar.llm svg {
+    flex-shrink: 0; /* Prevent svg from shrinking */
+    width: 100%; /* Full width of the parent container */
+    height: 100%; /* Full height to maintain aspect ratio */
+  }
+  
+  .message {
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-grow: 1; /* allows the message container to grow as needed */
+  }
+
+  .profile-container:before {
+    content: '';
+    position: absolute;
+    left: 0; /* Align the pseudo-element to the left */
+    right: 0; /* Align the pseudo-element to the right */
+    bottom: 45px; /* Position the line above the profile area */
+    width: 100%; /* The left and right properties already create space */
+    height: 2px; /* Height of the underline */
+    background-color: gray; /* Color of the underline */
+    border-radius: 1px; /* Rounded corners for the line */
+  }
+
+  .profile-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  
+  .profile-area {
+    padding: 8px 16px;
+    margin-right: 10px; /* Adds space between the profile area and the cog icon */
+    background-color: #202123;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center; /* Align the text to the left */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid gray;
+    transition: all 0.3s ease;
+    flex-grow: 1; /* Allows the profile area to expand */
+  }
+  
+  .profile-area:hover {
+    background-color: rgba(255,255,255,.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .settings-cog {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 20px; /* Adjust the size to make it more subtle */
+    opacity: 0.7; /* Reduces the intensity of the icon to make it more subtle */
+  }
+  
+  .settings-cog:hover {
+    color: #cccccc; /* Slightly lighter color on hover */
+    opacity: 1; /* Full opacity on hover for emphasis */
+  }
+
+  .settings-dropdown {
+    position: absolute;
+    right: 10px; /* Align with the cog */
+    bottom: 60px; /* Position below the cog */
+    width: 200px; /* Set a fixed width for the dropdown */
+    background-color: #303030; /* Match your theme */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+  
+  .settings-item {
+    padding: 10px;
+    color: white;
+    border-bottom: 1px solid #484848; /* Separate items */
+    cursor: pointer;
+  }
+  
+  .settings-item:last-child {
+    border-bottom: none; /* No border for the last item */
+  }
+  
+  .settings-item:hover {
+    background-color: #404040; /* Slightly lighter on hover */
+  }

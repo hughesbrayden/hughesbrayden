@@ -6,6 +6,7 @@
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
+    position: flex;
   }
   
   .login-form {
@@ -21,6 +22,8 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
+    line-height: 1.5;    /* This should be at least the size of the font */
+    height: auto;        /* Allows the input to size according to its content */
   }
   
   .login-button {
@@ -43,4 +46,21 @@
   
   .login-input-group {
     width: 100%;
+  }
+
+  .back-button {
+    position: absolute; /* Position the button absolutely within the container */
+    top: 20px; /* Adjust these values as needed */
+    left: 20px;
+    padding: 5px 10px;
+    border: 1px solid #ddd; /* A simple border for the button */
+    border-radius: 5px;
+    background-color: transparent; /* A basic, non-distracting background */
+    color: #007bff; /* Use your theme's primary color here */
+    cursor: pointer;
+    font-size: 16px; /* Adjust size as needed */
+  }
+  
+  .back-button:hover {
+    background-color: #f0f0f0; /* A light grey background on hover */
   }

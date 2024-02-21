@@ -7,20 +7,23 @@ import LandingPage from './pages/LandingPage';
 import ChatPage from './pages/ChatPage';
 import RegistrationPage from './pages/RegistrationPage';
 import LoginPage from './pages/LoginPage';
+import { AuthProvider } from './components/AuthContext';
+import PrivateRoute from './components/PrivateRoute'; 
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<LandingPage />} />
-          <Route path="/chat" element={<ChatPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <AuthProvider>
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<LandingPage />} />
+            <Route path="/chat" element={<PrivateRoute> <ChatPage /> </PrivateRoute>} />
+            <Route path="/register" element={<RegistrationPage />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </AuthProvider>
   );
 }
 

@@ -1,8 +1,15 @@
 import './chat.css';
-import React, { useState } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import useOutsideClick from '../../components/useOutsideClick';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../components/AuthContext';
 
 function ChatPage() {
+  const navigate = useNavigate();
   // add state for input and chat log
+  const [showSettings, setShowSettings] = useState(false);
   const [input, setInput] = useState('');
   // const [models, setModels] = useState([]);
   const [currentModel, setCurrentModel] = useState("GPT-4")
@@ -13,9 +20,7 @@ function ChatPage() {
     user: "me",
     message: "I would like to converse with llms"
   }]);
-  // Authentication state
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userToken, setUserToken] = useState(null);
+  const { isLoggedIn, setIsLoggedIn, userToken } = useContext(AuthContext);
 
   function clearChat() {
     setChatLog([]);
@@ -34,7 +39,8 @@ function ChatPage() {
       const response = await fetch('http://localhost:3080/', {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${userToken}`
         },
         body: JSON.stringify({ message: input })
       });
@@ -49,6 +55,33 @@ function ChatPage() {
       console.error("Failed to submit the message:", error);
     }
   }
+
+  // Placeholder function to handle profile click - to be implemented
+  const handleProfileClick = () => {
+    console.log('Profile area clicked');
+    // Future implementation will go here
+  };
+
+  const handleSettingsClick = () => {
+    // Placeholder for future settings window toggle logic
+    setShowSettings(!showSettings);
+    console.log('Settings cog clicked');
+  };
+
+  const handleLogout = () => {
+    // Clear the token from localStorage
+    localStorage.removeItem('token');
+  
+    // Reset authentication states
+    setIsLoggedIn(false);
+  
+    // Redirect to the home page
+    navigate('/');
+  };
+
+  // This useEffect hook will handle clicks outside of the dropdown
+  const settingsRef = useRef(null);
+  useOutsideClick(settingsRef, showSettings, () => setShowSettings(false));
 
   return (
     <div className="App">
@@ -67,6 +100,23 @@ function ChatPage() {
           ))}
         </select>
       </div>
+      <div ref={settingsRef} className="profile-container">
+        <div className="profile-area" onClick={handleProfileClick}>
+          My Profile {/* This will later be updated to an icon or user's avatar */}
+        </div>
+        <FontAwesomeIcon icon={faCog} className="settings-cog" onClick={handleSettingsClick} />
+        {showSettings && (
+          <div className="settings-dropdown">
+            <div className="settings-item" onClick={() => console.log('Go to All Settings')}>
+              Go to All Settings
+            </div>
+            <div className="settings-item" onClick={handleLogout}>
+              Logout
+            </div>
+          </div>
+        )}
+      </div>
+      
     </aside>
     <section className="chatbox">
     <div className="chat-log">

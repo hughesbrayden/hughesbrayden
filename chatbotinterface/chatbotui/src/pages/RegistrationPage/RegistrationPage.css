@@ -5,6 +5,7 @@
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
+    position: flex;
 }
   
 .registration-form {
@@ -20,6 +21,8 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
+    line-height: 1.5;    /* This should be at least the size of the font */
+    height: auto;        /* Allows the input to size according to its content */
 }
   
 /* If you want to specifically control the input group */
@@ -46,3 +49,34 @@
     color: red;
     margin-bottom: 15px;
 }
+
+.back-button {
+    position: absolute; /* Position the button absolutely within the container */
+    top: 20px; /* Adjust these values as needed */
+    left: 20px;
+    padding: 5px 10px;
+    border: 1px solid #ddd; /* A simple border for the button */
+    border-radius: 5px;
+    background-color: transparent; /* A basic, non-distracting background */
+    color: #007bff; /* Use your theme's primary color here */
+    cursor: pointer;
+    font-size: 16px; /* Adjust size as needed */
+  }
+  
+  .back-button:hover {
+    background-color: #f0f0f0; /* A light grey background on hover */
+  }
+
+  .login-prompt {
+    margin-top: 15px; /* Adjust as needed */
+    font-size: 0.9em; /* Adjust as needed */
+  }
+  
+  .login-link {
+    color: #007bff; /* Use a color that stands out for the hyperlink */
+    text-decoration: none; /* Optional: if you want to remove the underline */
+  }
+  
+  .login-link:hover {
+    text-decoration: underline; /* Optional: add underline on hover */
+  }

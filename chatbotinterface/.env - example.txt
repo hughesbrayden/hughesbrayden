@@ -1,0 +1,28 @@
+# Environment Configuration File
+# Rename this file to '.env' and replace the placeholder text with your actual data.
+
+OPENAI_API_KEY = Open AI API Key
+ASSISTANT_ID= Open AI Assistant ID - Can run assistant.js to get this
+THREAD_ID=Open AI Thread ID - Can run thread.js to get this
+
+# MONGODB_URI: MongoDB connection string to connect to your database.
+# How to Obtain Your MongoDB URI:
+# 1. Sign up or log into your MongoDB account (e.g., at MongoDB Atlas).
+# 2. Create a new project and build a new cluster if you haven't already.
+# 3. Once your cluster is set up, go to the 'Connect' section of your cluster.
+# 4. Choose 'Connect your application' as the connection method.
+# 5. Copy the provided connection string.
+# 6. Replace <password> with the password for the database user and replace 'myFirstDatabase' with the name of the database that connections will use by default.
+# Example: mongodb+srv://username:password@cluster-url/sample-database?retryWrites=true&w=majority
+DB_String = your_mongodb_connection_string_here
+
+# JWT_SECRET: Secret key for signing and verifying JWTs (JSON Web Tokens).
+# How to Obtain Your JWT_SECRET:
+# 1. The JWT_SECRET is a secret key that you create yourself. It should be a long, random, and secure string.
+# 2. You can generate a secure secret manually by combining random characters or by using a secure password generator.
+# 3. You can also use command-line tools to generate secure secrets. For example, using Node.js, you can run:
+#    node -e "console.log(require('crypto').randomBytes(64).toString('hex'));"
+# This command will generate a 128-character hexadecimal string, which is highly secure for JWT operations.
+# 4. Ensure that the JWT_SECRET is kept confidential and is only known to the server or parties that require it for verification purposes.
+# Example: 7fa73b47e1a244e3a6c564df7fe0d5c8bdaa8b99a8a4d679a2b3b7ad2bf1f1bb
+JWT_SECRET=your_jwt_secret_here

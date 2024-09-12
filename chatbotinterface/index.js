@@ -49,21 +49,26 @@ app.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
+    console.log("Checking user", email);
     if (!user) {
       return res.status(401).json({ message: 'Login failed. User not found.' });
     }
+    
+    console.log("User found", user);
+    
     
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
       return res.status(401).json({ message: 'Login failed. Wrong password.' });
     }
-    
+    console.log("Password match", isMatch);
     // Create a JWT token
     const token = jwt.sign(
       { userId: user._id, email: user.email }, // Payload
       process.env.JWT_SECRET, // Secret
       { expiresIn: '1h' } // Expiry in one hour, or choose a duration that fits your needs
     );
+    console.log("Signing token");
     
     // Send the token to the client
     res.status(200).json({ message: 'User logged in successfully', token: token });

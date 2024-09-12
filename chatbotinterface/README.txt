@@ -8,4 +8,9 @@ index.js - Backend file with API endpoints and GPT message handling
 
 
 To get started:
-
+1. Clone repository into IDE of your choice
+2. Create .env file based on specifications within .env - example file
+3. Once active OpenAI API key is entered, run assistant.js and thread.js to generate IDs to copy into ENV. 
+4. Within chatbotinterface directory, run node index.js
+5. Within chatbotui directory, run NPM start
+6. Create account and log in to play around

@@ -1,12 +1,9 @@
-- 👋 Hi, I’m @hughesbrayden
-- 👀 I’m interested in machine learning, data science, product strategy, and all things entrepreneurship.
-- 💞️ I’m looking to collaborate on any crazy, exciting, or even boring idea you have in mind. 
+Hey there. I’m building at the intersection of consumer tech and AI, focused on making intelligent software more useful, intuitive, and impactful.
 
-<!---
-hughesbrayden/hughesbrayden is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Here, you’ll find:
 
-- Within my repository, you will find:
+Sightline
 
-1. Chatbot Interface - A chatbot UI that I am building using React with the goal of having a template to interact with LLMs.
+A self-evolving harness for hurricane response that learns what context to surface to a fast decision model, improving its decisions without changing the model itself.
+
+Built for the MongoDB Harness Engineering & Model Wrangling Hackathon.

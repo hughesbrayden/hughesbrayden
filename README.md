@@ -8,7 +8,7 @@ An agentic navigation system for video glasses. As you walk, Echo shares updates
 
 Winner at the New Agentic Economy Hackathon.
 
-Sightline
+[Sightline](https://github.com/hughesbrayden/sightline)
 
 A self-evolving harness for hurricane response that learns what context to surface to a fast decision model, improving its decisions without changing the model itself.
 

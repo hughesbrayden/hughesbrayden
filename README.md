@@ -2,6 +2,13 @@ Hey there. I’m building at the intersection of consumer tech and AI, focused o
 
 Here, you’ll find:
 
+Echo
+
+An agentic navigation system for video glasses. As you walk, Echo shares updates about your environment so you can move safely and confidently. Twice a second, a decision model judges when and how to alert you, for less than a dollar per hour of navigation.
+
+Winner at the New Agentic Economy Hackathon
+
+
 Sightline
 
 A self-evolving harness for hurricane response that learns what context to surface to a fast decision model, improving its decisions without changing the model itself.

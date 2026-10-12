@@ -2,12 +2,11 @@ Hey there. I’m building at the intersection of consumer tech and AI, focused o
 
 Here, you’ll find:
 
-Echo
+[Echo](https://github.com/hughesbrayden/echo)
 
 An agentic navigation system for video glasses. As you walk, Echo shares updates about your environment so you can move safely and confidently. Twice a second, a decision model judges when and how to alert you, for less than a dollar per hour of navigation.
 
-Winner at the New Agentic Economy Hackathon
-
+Winner at the New Agentic Economy Hackathon.
 
 Sightline
 
